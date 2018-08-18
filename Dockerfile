@@ -17,7 +17,15 @@ RUN apt-get -y update && apt-get -y install build-essential cmake git \
       -DBUILD_opencv_java=ON \
       -DBUILD_EXAMPLES=OFF \
       -DBUILD_TESTS=OFF \
-      -DBUILD_PERF_TESTS=OFF
+      -DBUILD_PERF_TESTS=OFF \
 
     # installation
-    && make -j5
+    && make -j5 \
+
+    # install locally for maven
+    && mvn install:install-file \
+        -Dfile=/opt/opencv-3.4.2/build/bin/opencv-342.jar \
+        -DgroupId=org.opencv \
+        -DartifactId=opencv \
+        -Dversion=3.4.2 \
+        -Dpackaging=jar
