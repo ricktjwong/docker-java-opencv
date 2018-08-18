@@ -17,11 +17,7 @@ RUN apt-get -y update && apt-get -y install build-essential cmake git \
       -DBUILD_TESTS=OFF \
       -DBUILD_PERF_TESTS=OFF \
     # installation
-    && make -j5 \
-    # install locally for maven
-    && mvn install:install-file \
-        -Dfile=/opt/opencv-3.4.2/build/bin/opencv-342.jar \
-        -DgroupId=org.opencv \
-        -DartifactId=opencv \
-        -Dversion=3.4.2 \
-        -Dpackaging=jar
+    && make -j$(nproc) \
+    # chromedriver \
+    wget https://chromedriver.storage.googleapis.com/2.40/chromedriver_linux64.zip -O chromedriver-240.zip \
+    && unzip -q chromedriver-240.zip && mv chromedriver /opt && rm chromedriver-240.zip
