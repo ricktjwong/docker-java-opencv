@@ -1,2 +1,3 @@
 # java-opencv
-Docker image for opencv java
+Docker image for opencv java installation with contrib
+
