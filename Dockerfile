@@ -23,4 +23,7 @@ RUN apt-get -y update && apt-get install -y build-essential cmake git \
       -DBUILD_TESTS=OFF \
       -DBUILD_PERF_TESTS=OFF \
     # installation
-    && make -j$(nproc)
+    && make -j$(nproc) \
+    && mkdir /opt/opencv_files \
+    && cp /opt/opencv-3.4.2/build/bin/opencv-342.jar /opt/opencv_files \
+    && cp /opt/opencv-3.4.2/build/lib/libopencv_java342.so /opt/opencv_files
