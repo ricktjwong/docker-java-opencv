@@ -16,15 +16,12 @@ RUN apt-get -y update && apt-get install -y build-essential cmake git \
     && wget https://chromedriver.storage.googleapis.com/2.40/chromedriver_linux64.zip -O chromedriver-240.zip \
     && unzip -q chromedriver-240.zip && mv chromedriver /opt && rm chromedriver-240.zip \
     # prepare build
-    && mkdir /opt/opencv-3.4.2/build && cd /opt/opencv-3.4.2/build \
+    && mkdir /opt/opencv-3.4.2/build && mkdir /opt/opencv_files && cd /opt/opencv-3.4.2/build \
     && cmake -DOPENCV_EXTRA_MODULES_PATH=/opt/opencv_contrib-3.4.2/modules /opt/opencv-3.4.2 \
       -DBUILD_opencv_java=ON \
       -DBUILD_EXAMPLES=OFF \
       -DBUILD_TESTS=OFF \
       -DBUILD_PERF_TESTS=OFF \
     # installation
-    && make -j$(nproc)
-
-RUN mkdir /opt/opencv_files
-
-COPY cp /opt/opencv-3.4.2/build/{bin/opencv-342.jar,lib/libopencv_java342.so} /opt/opencv_files/
+    && make -j$(nproc) \
+    && cp /opt/opencv-3.4.2/build/{bin/opencv-342.jar,lib/libopencv_java342.so} /opt/opencv_files/
