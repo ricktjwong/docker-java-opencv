@@ -4,7 +4,8 @@ LABEL maintainer "rickwtj@gmail.com"
 RUN apt-get -y update && apt-get install -y build-essential cmake git \
     libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev \
     python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev \
-    libtiff-dev libjasper-dev libdc1394-22-dev maven wget unzip \
+    libtiff-dev libjasper-dev libdc1394-22-dev maven wget unzip ssh \
+    tar gzip ca-certificates \
     && apt-get install -y ant \
     && apt-get install -y openjdk-8-jdk \
     && apt-get install -y openjdk-8-jre \
