@@ -10,6 +10,10 @@ To test this docker image with circleci, do the following:
   - run circleci build
 
 Note:
+  - The opencv lib file (libopencv_java342.so) exists in /opt/opencv-3.4.2/build/lib in the docker image
+  - The opencv jar file (opencv-342.jar) exists in /opt/opencv-3.4.2/build/bin in the docker image
+  - Using the docker image as the primary container will allow the user to access these files
+  - To see a sample config.yml file, look in the pHash repository under /.circleci
   - To run tests that require opencv as a dependency, the following has to be specified in the pom.xml for the java project:
   ```
       <plugin>
@@ -21,5 +25,3 @@ Note:
           </configuration>
      </plugin>
   ```
-  - The /opt/opencv-3.4.2/build/lib exists in the docker image
-  - The opencv jar file (opencv-342.jar) exists in /opt/opencv-3.4.2/build/bin
