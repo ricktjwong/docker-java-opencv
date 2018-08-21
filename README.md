@@ -30,4 +30,4 @@ Note:
           <version>3.4.2</version>
      </dependency>
   ```
-  - Lines 27-31 can be used as OpenCV has been installed natively into the .m2 file in the docker container
+  - The dependency tag specifying opencv can be used as OpenCV has been installed natively into the .m2 file in the docker container
