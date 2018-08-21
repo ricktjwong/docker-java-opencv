@@ -4,7 +4,7 @@ LABEL maintainer "rickwtj@gmail.com"
 RUN apt-get -y update && apt-get install -y build-essential cmake git \
     libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev \
     python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev \
-    libtiff-dev libjasper-dev libdc1394-22-dev maven wget zip unzip sudo ssh ca-certificates curl\
+    libtiff-dev libjasper-dev libdc1394-22-dev maven wget zip unzip sudo ssh ca-certificates curl \
     && apt-get install -y ant \
     && apt-get install -y openjdk-8-jdk \
     && apt-get install -y openjdk-8-jre \
@@ -16,6 +16,7 @@ RUN apt-get -y update && apt-get install -y build-essential cmake git \
     && apt-get install -y fonts-liberation libappindicator3-1 libatk-bridge2.0-0 libgtk-3-0 libxss1 lsb-release xdg-utils \
     && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
     && dpkg -i google-chrome-stable_current_amd64.deb \
+    && rm google-chrome-stable_current_amd64.deb \
     # install chromedriver
     && wget https://chromedriver.storage.googleapis.com/2.40/chromedriver_linux64.zip -O chromedriver-240.zip \
     && unzip -q chromedriver-240.zip && mv chromedriver /opt && rm chromedriver-240.zip \
