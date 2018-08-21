@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 LABEL maintainer "rickwtj@gmail.com"
-# Install all dependencies for OpenCV 3.4.2
+# install all dependencies for OpenCV 3.4.2
 RUN apt-get -y update && apt-get install -y build-essential cmake git \
     libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev \
     python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev \
@@ -12,7 +12,11 @@ RUN apt-get -y update && apt-get install -y build-essential cmake git \
     && unzip -q opencv-342.zip && mv opencv-3.4.2 /opt && rm opencv-342.zip \
     && wget https://github.com/opencv/opencv_contrib/archive/3.4.2.zip -O opencv_contrib-342.zip \
     && unzip -q opencv_contrib-342.zip && mv opencv_contrib-3.4.2 /opt && rm opencv_contrib-342.zip \
-    # chromedriver
+    # install google chrome
+    && apt-get install -y fonts-liberation libappindicator3-1 libatk-bridge2.0-0 libgtk-3-0 libxss1 lsb-release xdg-utils \
+    && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && dpkg -i google-chrome-stable_current_amd64.deb \
+    # install chromedriver
     && wget https://chromedriver.storage.googleapis.com/2.40/chromedriver_linux64.zip -O chromedriver-240.zip \
     && unzip -q chromedriver-240.zip && mv chromedriver /opt && rm chromedriver-240.zip \
     # prepare build
